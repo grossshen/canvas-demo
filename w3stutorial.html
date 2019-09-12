@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+
+<canvas id="my-canvas" width="800" height="600" style="cursor:crosshair;border: 1px solid" ></canvas>
+<script>
+    let c = document.getElementById('my-canvas');
+    initCanvasSize();
+    console.log(c);
+    let ctx=c.getContext('2d');
+
+    function initCanvasSize(imgUrl='panda.jpg',percent=1) {
+        // let img = new Image();
+        // img.src = imgUrl;
+        // c.setAttribute("width", parseInt(img.width)*percent);
+        // c.setAttribute("height", parseInt(img.height)*percent);
+    }
+
+    function drawLine(x, y, X, Y,color) {
+        ctx.fillStyle=color;
+        ctx.moveTo(x, y);
+        ctx.lineTo(X, Y);
+        ctx.stroke();
+    }
+
+    function drawImg(imgUrl) {
+        let img=new Image();
+        img.src = imgUrl;
+        img.onload = function(){
+            ctx.drawImage(this, 0, 0)
+        };
+    }
+    drawImg('panda.jpg')
+    // ctx.fillStyle = '#ff0000';
+    // ctx.fillRect(0, 0, 200, 10);
+    // ctx.moveTo(10, 10);
+    // ctx.lineTo(150, 100);
+    // ctx.lineTo(150, 10);
+    // ctx.stroke();
+</script>
+</body>
+</html>
